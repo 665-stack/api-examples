@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends api</title>
+</head>
+<style>
+    body {
+        background-color: #E4E9BE;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .btn {
+        margin: 50px 0px 50px 0px;
+    }
+
+    button {
+        background-color: rgb(49, 49, 251);
+        color: white;
+        padding: 8px 16px 8px 16px;
+        border: none;
+        border-radius: 5px;
+        margin: auto;
+        display: block;
+
+    }
+
+    button:hover {
+        background-color: rgb(86, 86, 253);
+    }
+
+    #friends {
+        background-color: #e3c59a;
+        border-radius: 5px;
+        padding: 50px 20px 50px 20px;
+        margin: 0px 30px 0px 30px;
+        text-align: center;
+        color: rgb(49, 37, 7);
+    }
+</style>
+
+<body>
+    <div class="btn">
+        <button onclick="loadFriends()">Get One more Friend</button>
+    </div>
+
+    <div id="friends">
+        Click to get one more friends details.
+    </div>
+    <!-- JS -->
+    <script src="js/friends.js"></script>
+</body>
+
+</html>

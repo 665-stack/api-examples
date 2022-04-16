@@ -1,3 +1,4 @@
+// this api from kanye.rest website
 const loadQuotes = () => {
     fetch('https://api.kanye.rest/')
         .then(res => res.json())
@@ -6,5 +7,4 @@ const loadQuotes = () => {
 const displayQuote = quote => {
     const quoteElement = document.getElementById('quote');
     quoteElement.innerText = quote.quote;
-
 }
