@@ -2,11 +2,11 @@
 const loadcountries = () => {
     fetch('https://restcountries.com/v3.1/all')
         .then(res => res.json())
-        .then(data => displayCountris(data))
+        .then(data => displayCountries(data))
 }
 
 loadcountries()
-const displayCountris = countries => {
+const displayCountries = countries => {
     // for (const country of countries) {
     //     console.log(country)
     // }
@@ -25,5 +25,16 @@ const displayCountris = countries => {
 const loadCountryByName = name => {
     const url = `https://restcountries.com/v3.1/name/${name}
     `
-    console.log(url)
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayCountryDetail(data[0]))
+}
+const displayCountryDetail = country => {
+    console.log(country)
+    const countryDiv = document.getElementById('country-detail');
+    countryDiv.innerHTML = `
+       <img width="20%" src= "${country.flags.png}">
+       <h5>${country.name.common} </h5>
+       <p>Population: ${country.population}</p>
+    `
 }

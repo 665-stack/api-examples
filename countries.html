@@ -11,6 +11,7 @@
     body {
         background-color: #E4E9BE;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin: 20px 20px 0px 20px;
     }
 
     h1 {
@@ -51,9 +52,33 @@
     button:hover {
         background-color: #ba5f3e;
     }
+
+    .country-detail-section {
+        background-color: #E4B589;
+        padding: 5px 10px 20px 10px;
+        border-radius: 5px;
+    }
+
+    #country-detail {
+        background-color: #A64B2A;
+        padding: 20px;
+        border-radius: 5px;
+        color: white;
+    }
+
+    h5 {
+        font-size: 20px;
+        margin: 0px;
+    }
 </style>
 
 <body>
+    <section class="country-detail-section">
+        <h3>Country Details:</h3>
+        <div id="country-detail">
+            Click button to get country details.
+        </div>
+    </section>
     <h1>Countries API</h1>
     <div id="countries">
 
