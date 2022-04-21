@@ -5,9 +5,10 @@ const seacrhFood = async () => {
     // clear previous data
     searchField.value = '';
     if (searchText == '') {
-        alert('Please write something in search bar')
+        document.getElementById('emptySearchResult').style.visibility = 'visible';
     }
     else {
+        document.getElementById('emptySearchResult').style.visibility = 'hidden';
         // load data
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`
         const res = await fetch(url);
@@ -25,8 +26,6 @@ const displaySearchResult = meals => {
     // searchResult.innerHTML = '';
     searchResult.textContent = '';
     if (meals.length == 0) {
-        // show no result found (HW)
-
     }
     meals.forEach(meal => {
         // console.log(meal)
