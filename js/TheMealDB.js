@@ -1,3 +1,4 @@
+document.getElementById('error-massage').style.display = 'none';
 // this api is from themealdb.com
 const seacrhFood = () => {
     const searchField = document.getElementById('search-field');
@@ -5,15 +6,22 @@ const seacrhFood = () => {
     // clear previous data
     searchField.value = '';
     if (searchText == '') {
-        alert('Please write something in search bar')
+        document.getElementById('emptySearchResult').style.visibility = 'visible';
+        document.getElementById('error-massage').style.display = 'none';
     }
     else {
+        document.getElementById('emptySearchResult').style.visibility = 'hidden';
         // load data
-        const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
         fetch(url)
             .then(res => res.json())
             .then(data => displaySearchResult(data.meals))
+            // error catch with fetch
+            .catch(error => displayError(error))
     }
+}
+const displayError = error => {
+    document.getElementById('error-massage').style.display = 'block';
 }
 
 const displaySearchResult = meals => {
@@ -50,6 +58,8 @@ const loadMealDetail = mealId => {
 const displyaMealDetail = meal => {
     console.log(meal)
     const mealDetails = document.getElementById('meal-datails');
+    // clear previous meal details
+    mealDetails.textContent = '';
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
