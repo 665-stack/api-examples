@@ -57,6 +57,7 @@ const loadMealDetail = async mealId => {
 const displyaMealDetail = meal => {
     console.log(meal)
     const mealDetails = document.getElementById('meal-datails');
+    // clear previous meal details
     mealDetails.textContent = '';
     const div = document.createElement('div');
     div.classList.add('card');
