@@ -7,10 +7,9 @@ const loadcountries = () => {
 
 loadcountries()
 const displayCountries = countries => {
-    // for (const country of countries) {
-    //     console.log(country)
-    // }
+    console.log('fuck -- ', countries)
     const countriesDiv = document.getElementById('countries');
+    // for loop er bodole forEach use kora hoice
     countries.forEach(country => {
         const div = document.createElement('div');
         div.classList.add('country');
