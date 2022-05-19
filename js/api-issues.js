@@ -8,14 +8,22 @@ loadSingleUser()
 const displaySingleUser = user => {
     // console.log(user);
 }
+
+
+
 //=============================================
 // example from mealdb api
 
 // search functionality
+const toggleSpinner = displayStyle => {
+    document.getElementById('spinner').style.display = displayStyle
+}
 const searchMeal = () => {
     const searchText = document.getElementById('search-field').value;
-    loadMeals(searchText);
 
+    //display spinner
+    toggleSpinner('block')
+    loadMeals(searchText);
     // clear search input
     document.getElementById('search-field').value = '';
 }
@@ -42,6 +50,7 @@ const displayMeals = meals => {
         `;
         container.appendChild(div);
     });
+    toggleSpinner('none')
 }
 const loadMealDetail = mealName => {
     console.log(mealName);
