@@ -12,17 +12,22 @@ const displaySingleUser = user => {
 
 
 //=============================================
-// example from mealdb api
+//======== example from mealdb api=========
 
 // search functionality
 const toggleSpinner = displayStyle => {
     document.getElementById('spinner').style.display = displayStyle
+}
+const toggleSearchResult = displayStyle => {
+    document.getElementById('meals').style.display = displayStyle
 }
 const searchMeal = () => {
     const searchText = document.getElementById('search-field').value;
 
     //display spinner
     toggleSpinner('block')
+    //clear display
+    toggleSearchResult('none')
     loadMeals(searchText);
     // clear search input
     document.getElementById('search-field').value = '';
@@ -40,17 +45,23 @@ const loadMeals = searchText => {
 const displayMeals = meals => {
     const container = document.getElementById('meals');
     container.textContent = '';
-    meals.forEach(meal => {
+    if (!meals) {
+        alert('Please enter a meal name')
+    }
+    meals?.forEach(meal => {
         console.log(meal);
         const div = document.createElement('div');
         div.classList.add('perMealBox')
         div.innerHTML = `
            <h4>${meal.strMeal}</h4>
-           <button class="clickMeBtn" onclick="loadMealDetail('${meal.strMeal}')">Click Me</button>
+           <p>${meal.strIngredient18 ? meal.strIngredient18 : ''
+            }</p >
+    <button class="clickMeBtn" onclick="loadMealDetail('${meal.strMeal}')">Click Me</button>
         `;
         container.appendChild(div);
     });
-    toggleSpinner('none')
+    toggleSpinner('none');
+    toggleSearchResult('block')
 }
 const loadMealDetail = mealName => {
     console.log(mealName);
