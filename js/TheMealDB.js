@@ -1,3 +1,20 @@
+
+
+const searchBtn = document.getElementById("button-seacrh");
+const searchInput = document.getElementById("search-field");
+
+searchInput.addEventListener("keypress", function (event) {
+    // event.preventDefault();
+    if (event.keyCode == 13)
+        searchBtn.click();
+});
+
+
+
+
+
+
+
 document.getElementById('error-massage').style.display = 'none';
 // this api is from themealdb.com
 const seacrhFood = () => {

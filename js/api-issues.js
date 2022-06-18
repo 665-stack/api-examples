@@ -41,7 +41,7 @@ const loadMeals = searchText => {
         .then(res => res.json())
         .then(data => displayMeals(data.meals))
 }
-// loadMeals('fish')
+
 const displayMeals = meals => {
     const container = document.getElementById('meals');
     container.textContent = '';
